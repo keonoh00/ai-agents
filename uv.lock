@@ -12,12 +12,6 @@ members = [
 name = "ai-agents"
 version = "0.1.0"
 source = { virtual = "." }
-dependencies = [
-    { name = "openai" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "openai", specifier = ">=2.6.0" }]
 
 [[package]]
 name = "annotated-types"
@@ -252,6 +246,12 @@ wheels = [
 name = "simple-chatbot-with-tool-calls"
 version = "0.1.0"
 source = { editable = "openai/simple-chatbot-with-tool-calls" }
+dependencies = [
+    { name = "openai" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "openai", specifier = ">=2.6.0" }]
 
 [[package]]
 name = "sniffio"
