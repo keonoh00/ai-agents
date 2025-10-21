@@ -7,7 +7,7 @@ authors = [
     { name = "keonoh00", email = "keonoh00@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = ["openai>=2.6.0"]
 
 [project.scripts]
 simple-chatbot-with-tool-calls = "simple_chatbot_with_tool_calls:main"
