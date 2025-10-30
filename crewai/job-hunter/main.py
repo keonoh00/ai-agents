@@ -94,4 +94,10 @@ class JobHunterCrew:
         )
 
 
-JobHunterCrew().crew().kickoff()
+JobHunterCrew().crew().kickoff(
+    inputs={
+        "level": "IC2 or Similar",
+        "position": "Software Engineer with tech stack of react native or react or python. With fully asynchronous culture and remote friendly.",
+        "location": "Remote",
+    },
+)
