@@ -1,0 +1,85 @@
+# **Keon Oh Kim**
+**Software Engineer & AI Specialist**  
+📍 *Gwacheon-si, Gyeonggi-do, South Korea*  
+📞 *+82-10-3669-2944*  
+✉️ [keonoh00@gmail.com](mailto:keonoh00@gmail.com)  
+🌐 [GitHub](https://github.com/keonoh00) • [GitLab](https://gitlab.com/keonoh00) • [LinkedIn](https://linkedin.com/in/keonoh00)
+
+---
+
+## **Profile**
+Software engineer with hands-on experience in full-cycle app development, cross-platform mobile engineering, and web platform design. Skilled in building production-ready applications, setting up CI/CD pipelines, and optimizing frontend/backend integration. Experienced in multiple programming languages and frameworks.  
+In addition, contributed to academic research with **7+ deep learning publications**, focusing on federated learning, anomaly detection, and network security. Combines engineering execution with research insight to deliver robust, scalable solutions.
+
+---
+
+## **Experience**
+
+### **Software Engineer & Researcher — Kyung Hee University (Networking Intelligence Lab)**  
+*Seoul, Korea | 2023–2025*
+- Developed web-based monitoring systems and backend services for research projects.  
+- Integrated scalable data pipelines and dashboards for government-funded AI systems.  
+- Conducted applied research in anomaly detection (Variational Causal Networks) for network traffic security.  
+- **Tech Stack:** Python (Flask, PyTorch), C++, React, Node.js.
+
+---
+
+### **React Native Developer — Thingsflow (PUBG/Krafton)**  
+*Seoul, Korea | 2022–2023*
+- Migrated core features from native iOS/Android into React Native, reducing development overhead.  
+- Implemented gesture-based UX for serialized content reading, improving user engagement.  
+- Optimized API communication and state management with GraphQL + MobX.
+
+---
+
+### **iOS Team Lead / Front-End Developer — Fama Technologies**  
+*London, UK | 2022*
+- Led iOS development, coordinated feature rollouts, and reviewed frontend/backend contributions.  
+- Built cross-platform apps with React Native, Redux, and Firebase.  
+- Automated deployments with Fastlane and enabled OTA updates with CodePush.  
+- Collaborated with backend team on Node.js API integration.
+
+---
+
+## **Education**
+
+### **M.Eng. Computer Science and Engineering — Kyung Hee University**  
+*Seoul, Korea | 2023–2025*
+- **GPA:** 4.19/4.3  
+- **Thesis:** *Anomaly Detection using Variational Causal Networks*  
+- **Relevant Coursework:** Deep Learning, Reinforcement Learning, Web Hacking, Advanced AI Networking.
+
+---
+
+### **B.Sc. Molecular Biotechnology — Ghent University**  
+*Ghent, Belgium | 2017–2022*
+- **Thesis:** *Deep Learning-Based Tumor Classification in Laparoscopic Videos.*  
+- Collaboration with Ghent University Hospital and UCSF.
+
+---
+
+### **International Baccalaureate — Chadwick International**  
+*Incheon, Korea | 2013–2017*
+
+---
+
+## **Publications**
+
+- K. O. Kim and C. S. Hong, *"Airy Federated Learning: A Light-Weight Federated Learning using APoZ-based Pruning,"* **Korea Computer Congress**, 2023. *(Best Presentation Award)*  
+- K. O. Kim, S. B. Park, and C. S. Hong, *"Airy Federated Learning: Extended Version,"* **KIISE Transactions on Computing Practices**, 2024.  
+- K. O. Kim, D. U. Kim, K. Kim, S.-M. Kang, E. N. Huh, and C. S. Hong, *"Efficient Networking Intrusion Detection System using Grassmann Manifold,"* **IEEE ICOIN**, 2025.  
+- H. Q. Le, Y. L. Tun, Y. Qiao, M. N. Nguyen, K. O. Kim, and C. S. Hong, *"Mitigating Domain Shift in Federated Learning via Intra- and Inter-Domain Prototypes,"* **arXiv**, 2025.  
+- A. Amirjon, M. Gain, K. O. Kim, and C. S. Hong, *"Enhanced Intrusion Detection with Feedforward Neural Network Classifier,"* **ICACT**, 2025.  
+- D. U. Kim, K. O. Kim, S.-M. Kang, and C. S. Hong, *"Rollback Mechanism for Securing OCPP 1.6 against Spoofing Attacks,"* **ICACT**, 2025.  
+- Y. Qiao, K. O. Kim, and C. S. Hong, *"Mitigating Domain Shift in Federated Learning via Contrastive Learning,"* **KSC**, 2024.  
+- H. Q. Le, K. O. Kim, and C. S. Hong, *"Addressing Domain Shift in Federated Learning via Prototype Learning,"* **KSC**, 2024.  
+- A. Amirjon, K. O. Kim, M. Gain, A. D. Raha, and C. S. Hong, *"Efficient Malware Detection through RNNs and Balanced Dataset,"* **KSC**, 2024.
+
+---
+
+## **Skills**
+
+**Programming:** TypeScript (React Native, Next.js, Nest.js), Python (Flask, PyTorch, TensorFlow), C++, R, MATLAB  
+**Frameworks:** Redux, React Query, Firebase, GraphQL, Expo, Supabase, Fastlane, CodePush  
+**DevOps:** CI/CD, OTA deployments, automated builds (Fastlane), GitLab CI, Docker  
+**Languages:** Korean (Native), English (Fluent)
