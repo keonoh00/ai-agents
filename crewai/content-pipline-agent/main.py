@@ -134,7 +134,14 @@ class ContentPipelineFlow(Flow[ContentPipelineState]):
             """
             )
 
-        self.state.blog_post = BlogPost.model_validate_json(result)
+        if isinstance(result, BlogPost):
+            self.state.blog_post = BlogPost.model_validate(result)
+        elif isinstance(result, str):
+            self.state.blog_post = BlogPost.model_validate_json(result)
+        elif isinstance(result, dict):
+            self.state.blog_post = BlogPost.model_validate(result)
+        else:
+            raise ValueError(f"Unexpected result type: {type(result)}")
 
     @listen(or_("make_tweet", "remake_tweet"))
     def handle_make_tweet(self):
