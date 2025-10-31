@@ -2,12 +2,15 @@ from typing import List
 
 from crewai.agent import Agent
 from crewai.flow.flow import Flow, listen, or_, router, start
+from dotenv import load_dotenv
 from pydantic import BaseModel
 from seo import SeoCrew
 from tools import web_search_tool
 from viral import ViralityCrew
 
 from crewai import LLM
+
+load_dotenv(dotenv_path="../../.env")
 
 
 class BlogPost(BaseModel):
@@ -93,7 +96,8 @@ class ContentPipelineFlow(Flow[ContentPipelineState]):
         else:
             return "make_linkedin_post"
 
-    @listen(or_("make_blog", "remake_blog"))
+    @listen("make_blog")
+    @listen("remake_blog")
     def handle_make_blog(self):
 
         blog_post = self.state.blog_post
@@ -143,7 +147,8 @@ class ContentPipelineFlow(Flow[ContentPipelineState]):
         else:
             raise ValueError(f"Unexpected result type: {type(result)}")
 
-    @listen(or_("make_tweet", "remake_tweet"))
+    @listen("make_tweet")
+    @listen("remake_tweet")
     def handle_make_tweet(self):
 
         tweet = self.state.tweet
@@ -185,7 +190,8 @@ class ContentPipelineFlow(Flow[ContentPipelineState]):
 
         self.state.tweet = Tweet.model_validate_json(result)
 
-    @listen(or_("make_linkedin_post", "remake_linkedin_post"))
+    @listen("make_linkedin_post")
+    @listen("remake_linkedin_post")
     def handle_make_linkedin_post(self):
 
         linkedin_post = self.state.linkedin_post
@@ -242,7 +248,8 @@ class ContentPipelineFlow(Flow[ContentPipelineState]):
         )
         self.state.score = result.pydantic
 
-    @listen(or_(handle_make_tweet, handle_make_linkedin_post))
+    @listen("handle_make_tweet")
+    @listen("handle_make_linkedin_post")
     def check_virality(self):
         result = (
             ViralityCrew()
@@ -306,12 +313,11 @@ class ContentPipelineFlow(Flow[ContentPipelineState]):
 
 flow = ContentPipelineFlow()
 
+# flow.plot()
+
 flow.kickoff(
     inputs={
         "content_type": "blog",
         "topic": "AI Dog Training",
     },
 )
-
-
-flow.plot()
