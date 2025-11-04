@@ -5,7 +5,7 @@ dotenv.load_dotenv(dotenv_path="../../.env")
 import asyncio
 
 import streamlit as st
-from agents import Agent, Runner, SQLiteSession
+from agents import Agent, Runner, Session, SQLiteSession
 
 if "agent" not in st.session_state:
     st.session_state.agent = Agent(
@@ -19,21 +19,39 @@ if "session" not in st.session_state:
     )
 
 agent = st.session_state.agent
-session = st.session_state.session
+session: Session = st.session_state.session
 
 st.title("Chat GPT Clone")
 
 
+async def paint_chat_history():
+    messages = await session.get_items()
+    for message in messages:
+        with st.chat_message(message["role"]):
+            if message["role"] == "user":
+                st.write(message["content"])
+            else:
+                if message["type"] == "message":
+                    st.write(message["content"][0]["text"])
+
+
+asyncio.run(paint_chat_history())
+
+
 async def run_agent(user_input):
-    stream = Runner.run_streamed(agent, user_input, session=session)
-    async for event in stream.stream_events():
-        if event.type == "raw_response_event":
-            if event.data.type == "response.output_text.delta":
-                with st.chat_message("ai"):
-                    st.write(event.data.delta)
+    with st.chat_message("assistant"):
+        text_placeholder = st.empty()
+        response = ""
+        stream = Runner.run_streamed(agent, user_input, session=session)
+
+        async for event in stream.stream_events():
+            if event.type == "raw_response_event":
+                if event.data.type == "response.output_text.delta":
+                    response += event.data.delta
+                    text_placeholder.write(response)
 
 
-user_input = st.text_input("Enter your message:")
+user_input = st.chat_input("Enter your message:")
 
 if user_input:
     with st.chat_message("user"):
