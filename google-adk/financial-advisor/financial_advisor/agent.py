@@ -8,7 +8,7 @@ from .ollama import OllamaLLM
 dotenv.load_dotenv(dotenv_path="../../../.env")
 
 
-MODEL = OllamaLLM(model="openai/gpt-oss:latest")
+MODEL = OllamaLLM(model="ollama/gpt-oss:latest")
 
 
 def get_weather(city: str) -> str:
