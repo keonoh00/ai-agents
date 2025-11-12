@@ -77,9 +77,13 @@ class OllamaLLM:
                 "Google ADK not installed. Install it with: pip install google-adk"
             )
 
+        # Use OpenAI prefix for Google ADK for now - TODO: Remove this once Google ADK supports Ollama correctly
+        model_name_fixed = self.model.replace("ollama/", "openai/", 1)
+        model_name_fixed = model_name_fixed.replace("ollama_chat/", "openai/", 1)
+
         return LiteLlm(
-            model=self.model,
-            api_base=self.api_base,
+            model=model_name_fixed,
+            api_base=self.api_base + "/v1",
             timeout=self.timeout,
         )
 
