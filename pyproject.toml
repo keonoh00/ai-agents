@@ -1,6 +1,0 @@
-[tool.uv.workspace]
-members = [
-  "packages/ollama",
-  "google-adk/youtube-shorts-maker",
-  "google-adk/financial-advisor",
-]

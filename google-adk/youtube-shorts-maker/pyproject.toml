@@ -14,4 +14,4 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-ollama = { workspace = true }
+ollama = { path = "../../packages/ollama", editable = true }
