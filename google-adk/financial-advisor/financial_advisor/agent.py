@@ -3,7 +3,7 @@ import os
 import dotenv
 from google.adk.agents import Agent
 from google.adk.tools.agent_tool import AgentTool
-from ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 from .data_analyst import data_analyst
 from .financial_analyst import financial_analyst

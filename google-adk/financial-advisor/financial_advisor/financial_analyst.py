@@ -1,6 +1,6 @@
 import yfinance as yf
 from google.adk.agents import Agent
-from ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 MODEL = OllamaLLM(model="ollama/gpt-oss:latest").googleAdk()
 

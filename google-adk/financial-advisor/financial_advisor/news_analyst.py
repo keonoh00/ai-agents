@@ -1,5 +1,5 @@
 from google.adk.agents import Agent
-from ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 from tools import web_search_tool
 
 MODEL = OllamaLLM(model="ollama/gpt-oss:latest").googleAdk()

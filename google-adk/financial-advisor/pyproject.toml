@@ -9,7 +9,7 @@ dependencies = [
   "google-adk>=1.11.0",
   "google-genai>=1.31.0",
   "litellm>=1.75.8",
-  "ollama",
+  "ollama-wrapper",
   "python-dotenv>=1.1.1",
   "yfinance>=0.2.65",
 ]
@@ -17,5 +17,6 @@ dependencies = [
 [dependency-groups]
 dev = ["watchdog>=6.0.0"]
 
+
 [tool.uv.sources]
-ollama = { path = "../../packages/ollama", editable = true }
+ollama-wrapper = { path = "../../packages/ollama-wrapper", editable = true }
