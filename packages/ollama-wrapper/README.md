@@ -16,7 +16,7 @@ This package is part of the workspace and can be used by other projects in the w
 ## Usage
 
 ```python
-from ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 # Create OllamaLLM instance
 llm = OllamaLLM(model="ollama/llama3.2")

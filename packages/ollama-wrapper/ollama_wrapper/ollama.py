@@ -10,7 +10,7 @@ class OllamaLLM:
 
     Example:
         ```python
-        from ollama import OllamaLLM
+        from ollama_wrapper import OllamaLLM
 
         llm = OllamaLLM(
             model="ollama/llama3.2",
