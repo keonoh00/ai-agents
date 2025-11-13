@@ -12,5 +12,5 @@ content_planner = Agent(
     instruction=CONTENT_PLANNER_PROMPT,
     model=model,
     output_schema=ContentPlanOutput,
-    output_key="content_output_key",
+    output_key="content_planner_output",
 )
