@@ -9,9 +9,13 @@ dependencies = [
   "google-adk>=1.11.0",
   "google-genai>=1.31.0",
   "litellm>=1.75.8",
+  "ollama",
   "python-dotenv>=1.1.1",
   "yfinance>=0.2.65",
 ]
 
 [dependency-groups]
 dev = ["watchdog>=6.0.0"]
+
+[tool.uv.sources]
+ollama = { workspace = true }
