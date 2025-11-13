@@ -42,7 +42,15 @@ async def generate_images(tool_context: ToolContext):
             size="1024x1536",
         )
 
-        image_bytes = base64.b64decode(image.data[0].b64_json)
+        # Type checking: ensure data exists and has b64_json
+        if not image.data or len(image.data) == 0:
+            raise ValueError("No image data returned from API")
+
+        first_image = image.data[0]
+        if not hasattr(first_image, "b64_json") or first_image.b64_json is None:
+            raise ValueError("Image data missing b64_json field")
+
+        image_bytes = base64.b64decode(first_image.b64_json)
 
         artifact = types.Part(
             inline_data=types.Blob(
