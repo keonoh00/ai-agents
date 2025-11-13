@@ -1,5 +1,5 @@
 from google.adk.agents import Agent
-from ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 from .model import PromptBuilderOutput
 from .prompt import PROMPT_BUILDER_DESCRIPTION, PROMPT_BUILDER_PROMPT

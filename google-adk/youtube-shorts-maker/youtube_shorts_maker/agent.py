@@ -1,6 +1,6 @@
 from google.adk.agents import Agent
 from google.adk.tools.agent_tool import AgentTool
-from ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 from .prompt import SHORTS_PRODUCER_DESCRIPTION, SHORTS_PRODUCER_PROMPT
 from .sub_agents.asset_generator.agent import asset_generator

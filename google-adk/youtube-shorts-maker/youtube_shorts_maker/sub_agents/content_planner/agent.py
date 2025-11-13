@@ -1,5 +1,5 @@
 from google.adk.agents import Agent
-from ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 from .model import ContentPlanOutput
 from .prompt import CONTENT_PLANNER_DESCRIPTION, CONTENT_PLANNER_PROMPT
