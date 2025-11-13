@@ -1,8 +1,8 @@
 import yfinance as yf
 from google.adk.agents import LlmAgent
-from google.adk.models.lite_llm import LiteLlm
+from ollama import OllamaLLM
 
-MODEL = LiteLlm(model="openai/gpt-4o")
+MODEL = OllamaLLM(model="ollama/gpt-oss:latest").googleAdk()
 
 
 def get_company_info(ticker: str):

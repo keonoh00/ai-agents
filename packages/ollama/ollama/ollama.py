@@ -10,9 +10,9 @@ class OllamaLLM:
 
     Example:
         ```python
-        from financial_advisor.local_llm import LocalLLM
+        from ollama import OllamaLLM
 
-        llm = LocalLLM(
+        llm = OllamaLLM(
             model="ollama/llama3.2",
         )
 
