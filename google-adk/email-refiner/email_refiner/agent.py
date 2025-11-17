@@ -16,7 +16,11 @@ from .prompt import (
 )
 from .tools import escalate_email_complete
 
+# from ollama_wrapper import OllamaLLM
+
+
 MODEL = LiteLlm(model="openai/gpt-4o-mini")
+# MODEL = OllamaLLM(model="ollama/gpt-oss:latest").googleAdk()
 
 clarity_agent = Agent(
     name="ClarityEditorAgent",
