@@ -1,23 +1,20 @@
 [project]
-name = "youtube-shorts-maker"
+name = "travel-advisor"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-  "google-adk>=1.12.0",
-  "google-genai>=1.31.0",
-  "litellm>=1.76.0",
-  "ollama>=0.6.0",
-  "ollama-wrapper",
-  "openai>=1.101.0",
-  "python-dotenv>=1.1.1",
+    "google-adk[eval]>=1.12.0",
+    "google-genai>=1.31.0",
+    "litellm>=1.76.0",
+    "requests>=2.32.5",
+    "sseclient-py>=1.8.0",
+    "ollama-wrapper",
 ]
 
 [tool.uv.sources]
 ollama-wrapper = { path = "../../packages/ollama-wrapper", editable = true }
 
 [dependency-groups]
-dev = [
-    "ipykernel>=6.30.1",
-]
+dev = ["ipykernel>=6.30.1"]
