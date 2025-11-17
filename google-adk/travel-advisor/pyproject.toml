@@ -9,5 +9,9 @@ dependencies = [
     "google-genai>=1.31.0",
     "litellm>=1.76.0",
     "requests>=2.32.5",
-    "sseclient-py>=1.8.0"
+    "sseclient-py>=1.8.0",
+    "ollama-wrapper"
 ]
+
+[tool.uv.sources]
+ollama-wrapper = { path = "../../packages/ollama-wrapper", editable = true }
