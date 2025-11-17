@@ -16,3 +16,8 @@ dependencies = [
 
 [tool.uv.sources]
 ollama-wrapper = { path = "../../packages/ollama-wrapper", editable = true }
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.30.1",
+]
