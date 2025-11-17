@@ -38,7 +38,7 @@ persuation_agent = Agent(
     name="PersuationAgent",
     description=PERSUASION_STRATEGIST_DESCRIPTION,
     instruction=PERSUASION_STRATEGIST_INSTRUCTION,
-    output_key="persuation_output",
+    output_key="persuasion_output",
     model=MODEL,
 )
 
