@@ -1,8 +1,8 @@
 import yfinance as yf
 from google.adk.agents import Agent
-from google.adk.models.lite_llm import LiteLlm
+from ollama_wrapper import OllamaLLM
 
-MODEL = LiteLlm(model="openai/gpt-4o")
+MODEL = OllamaLLM(model="ollama/gpt-oss:latest").googleAdk()
 
 
 def get_income_statement(ticker: str):

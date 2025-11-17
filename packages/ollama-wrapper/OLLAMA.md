@@ -5,7 +5,7 @@
 ## Quick Start
 
 ```python
-from financial_advisor.ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 # Create OllamaLLM instance
 llm = OllamaLLM(model="ollama/llama3.2")
@@ -52,7 +52,7 @@ export LOCAL_LLM_TIMEOUT="60.0"                 # Request timeout in seconds
 ### Basic Configuration
 
 ```python
-from financial_advisor.ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 # Minimal configuration (uses defaults)
 llm = OllamaLLM(model="ollama/llama3.2")
@@ -98,7 +98,7 @@ llm = OllamaLLM(model="openai/gpt-oss:latest")
 
 ```python
 from google.adk.agents import Agent
-from financial_advisor.ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 # Create OllamaLLM instance
 llm = OllamaLLM(model="ollama/llama3.2")
@@ -127,7 +127,7 @@ agent = Agent(
 
 ```python
 from crewai import Agent
-from financial_advisor.ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 # Create OllamaLLM instance
 llm = OllamaLLM(model="ollama/llama3.2")
@@ -144,7 +144,7 @@ agent = Agent(
 ### OpenAI SDK
 
 ```python
-from financial_advisor.ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 # Create OllamaLLM instance
 llm = OllamaLLM(model="ollama/llama3.2")
@@ -164,7 +164,7 @@ print(response.choices[0].message.content)
 ### LangGraph
 
 ```python
-from financial_advisor.ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 from langgraph.graph import StateGraph, END
 
 # Create OllamaLLM instance
@@ -239,7 +239,7 @@ sudo firewall-cmd --reload
 Set the remote server URL:
 
 ```python
-from financial_advisor.ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 llm = OllamaLLM(
     model="ollama/llama3.2",
@@ -256,7 +256,7 @@ export OLLAMA_BASE_URL="http://your-gpu-server-ip:11434"
 Then in your code:
 
 ```python
-from financial_advisor.ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 llm = OllamaLLM(model="ollama/llama3.2")  # Uses OLLAMA_BASE_URL from env
 ```
@@ -317,7 +317,7 @@ journalctl -u ollama -f
 Simply change the model name when creating `OllamaLLM`:
 
 ```python
-from financial_advisor.ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 # Popular Ollama models:
 llm = OllamaLLM(model="ollama/llama3.2")    # Llama 3.2
@@ -479,7 +479,7 @@ ollama run llama3.2 "Hello, how are you?"
 import os
 import dotenv
 from google.adk.agents import Agent
-from financial_advisor.ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 dotenv.load_dotenv()
 
@@ -505,7 +505,7 @@ root_agent = agent
 ### Multiple Models Example
 
 ```python
-from financial_advisor.ollama import OllamaLLM
+from ollama_wrapper import OllamaLLM
 
 # Different models for different purposes
 coding_llm = OllamaLLM(model="ollama/codellama")

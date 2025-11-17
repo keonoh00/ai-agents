@@ -1,9 +1,8 @@
 from google.adk.agents import Agent
-from google.adk.models.lite_llm import LiteLlm
+from ollama_wrapper import OllamaLLM
 from tools import web_search_tool
 
-MODEL = LiteLlm(model="openai/gpt-4o")
-
+MODEL = OllamaLLM(model="ollama/gpt-oss:latest").googleAdk()
 
 news_analyst = Agent(
     name="NewsAnalyst",
