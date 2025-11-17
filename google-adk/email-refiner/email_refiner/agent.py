@@ -14,6 +14,7 @@ from .prompt import (
     TONE_STYLIST_DESCRIPTION,
     TONE_STYLIST_INSTRUCTION,
 )
+from .tools import escalate_email_complete
 
 MODEL = LiteLlm(model="openai/gpt-4o-mini")
 
@@ -49,6 +50,7 @@ literary_critic_agent = Agent(
     name="LiteraryCriticAgent",
     description=LITERARY_CRITIC_DESCRIPTION,
     instruction=LITERARY_CRITIC_INSTRUCTION,
+    tools=[escalate_email_complete],
 )
 
 email_refiner_agent = LoopAgent(
