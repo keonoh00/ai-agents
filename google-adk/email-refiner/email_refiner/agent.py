@@ -53,6 +53,7 @@ literary_critic_agent = Agent(
 
 email_refiner_agent = LoopAgent(
     name="EmailRefinerAgent",
+    max_iterations=50,
     description=EMAIL_OPTIMIZER_DESCRIPTION,
     sub_agents=[
         clarity_agent,
