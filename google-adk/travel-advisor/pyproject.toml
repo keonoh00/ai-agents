@@ -10,8 +10,11 @@ dependencies = [
     "litellm>=1.76.0",
     "requests>=2.32.5",
     "sseclient-py>=1.8.0",
-    "ollama-wrapper"
+    "ollama-wrapper",
 ]
 
 [tool.uv.sources]
 ollama-wrapper = { path = "../../packages/ollama-wrapper", editable = true }
+
+[dependency-groups]
+dev = ["ipykernel>=6.30.1"]
