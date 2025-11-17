@@ -21,24 +21,28 @@ clarity_agent = Agent(
     name="ClarityEditorAgent",
     description=CLARITY_EDITOR_DESCRIPTION,
     instruction=CLARITY_EDITOR_INSTRUCTION,
+    output_key="clarity_output",
 )
 
 tone_stylist_agent = Agent(
     name="ToneStylistAgent",
     description=TONE_STYLIST_DESCRIPTION,
     instruction=TONE_STYLIST_INSTRUCTION,
+    output_key="tone_output",
 )
 
 persuation_agent = Agent(
     name="PersuationAgent",
     description=PERSUASION_STRATEGIST_DESCRIPTION,
     instruction=PERSUASION_STRATEGIST_INSTRUCTION,
+    output_key="persuation_output",
 )
 
 email_synthesizer_agent = Agent(
     name="EmailSynthesizerAgent",
     description=EMAIL_SYNTHESIZER_DESCRIPTION,
     instruction=EMAIL_SYNTHESIZER_INSTRUCTION,
+    output_key="synthesized_output",
 )
 
 literary_critic_agent = Agent(
