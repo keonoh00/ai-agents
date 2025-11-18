@@ -3,5 +3,9 @@ name = "deep-chat"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.14"
-dependencies = []
+requires-python = ">=3.13"
+dependencies = [
+    "openai-agents>=0.5.1",
+    "python-dotenv>=1.2.1",
+    "streamlit>=1.51.0",
+]
