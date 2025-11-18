@@ -396,6 +396,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "ollama-wrapper" },
     { name = "openai-agents" },
+    { name = "opendataloader-pdf" },
     { name = "python-dotenv" },
     { name = "streamlit" },
 ]
@@ -404,6 +405,7 @@ dependencies = [
 requires-dist = [
     { name = "ollama-wrapper", editable = "../../packages/ollama-wrapper" },
     { name = "openai-agents", specifier = ">=0.5.1" },
+    { name = "opendataloader-pdf", specifier = ">=1.2.0" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
     { name = "streamlit", specifier = ">=1.51.0" },
 ]
@@ -1756,6 +1758,14 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/b8/1f/322595f9a7ffd48afe2449bb92090eb893ba6ae4475e3ee549f64566a3a1/openai_agents-0.5.1.tar.gz", hash = "sha256:e193cd3a1b0d4f9a3f3fa9c4011c0b1f8876fa5f38bde4ae41d6a834a5791124", size = 1990900, upload-time = "2025-11-13T17:59:36.173Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/10/ca/352a7167ac040f9e7d6765081f4021811914724303d1417525d50942e15e/openai_agents-0.5.1-py3-none-any.whl", hash = "sha256:7077c47d8e4230d788a18922df7cd69f13c3328a57744156195da4921c08c835", size = 231786, upload-time = "2025-11-13T17:59:32.691Z" },
+]
+
+[[package]]
+name = "opendataloader-pdf"
+version = "1.2.0"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a4/43/2a62536901b39468cf6fc53b3bbf69937032be28f3b415fa2a0866bd4f28/opendataloader_pdf-1.2.0-py3-none-any.whl", hash = "sha256:eb72e5dde7b00feec8697cdcfef31623cbba255c9190bafd245dbf4d59f9a0d8", size = 19202475, upload-time = "2025-11-14T09:07:46.659Z" },
 ]
 
 [[package]]
