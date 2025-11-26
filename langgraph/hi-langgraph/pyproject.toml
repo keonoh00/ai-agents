@@ -13,7 +13,12 @@ dependencies = [
   "langgraph-checkpoint-sqlite==2.0.11",
   "langgraph-cli[inmem]>=0.4.0",
   "python-dotenv==1.1.1",
+  "ollama-wrapper",
 ]
 
 [dependency-groups]
 dev = ["ipykernel>=6.30.1"]
+
+
+[tool.uv.sources]
+ollama-wrapper = { path = "../../packages/ollama-wrapper", editable = true }
