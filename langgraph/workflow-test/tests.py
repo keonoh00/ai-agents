@@ -1,5 +1,12 @@
 import pytest
+from langgraph.graph.state import RunnableConfig
 from main import graph
+
+config: RunnableConfig = {
+    "configurable": {
+        "thread_id": "1",
+    }
+}
 
 
 @pytest.mark.parametrize(
@@ -14,7 +21,8 @@ def test_full_graph(email, expected_category, expected_score):
     result = graph.invoke(
         {
             "email": email,
-        }
+        },
+        config=config,
     )
 
     assert result["category"] == expected_category
@@ -37,3 +45,23 @@ def test_individual_node():
     # Draft response
     result = graph.nodes["draft_response"].invoke({"category": "spam"})
     assert "Go away" in result["response"]
+
+
+def test_partial_execution():
+
+    graph.update_state(
+        config=config,
+        values={
+            "email": "please checkout this offer",
+            "category": "spam",
+        },
+        as_node="categorize_email",
+    )
+
+    result = graph.invoke(
+        None,
+        config=config,
+        interrupt_after="draft_response",
+    )
+
+    assert result["priority_score"] == 1
