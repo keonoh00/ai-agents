@@ -19,7 +19,7 @@ def categorize_email(state: EmailState) -> EmailState:
     if "urgent" in email or "asap" in email:
         category = "urgent"
     elif "offer" in email or "discount" in email:
-        category = "urgent"
+        category = "spam"
     else:
         category = "normal"
 
@@ -62,6 +62,3 @@ graph_builder.add_edge("assign_priority", "draft_response")
 graph_builder.add_edge("draft_response", END)
 
 graph = graph_builder.compile()
-
-result = graph.invoke({"email": "I need to talk to you urgently"})
-print(result)
