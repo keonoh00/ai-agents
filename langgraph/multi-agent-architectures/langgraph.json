@@ -1,9 +1,9 @@
 {
   "dependencies": [
-    "./graph.py"
+    "./network-architecture.py"
   ],
   "graphs": {
-    "agent": "./graph.py:graph"
+    "network-architecture": "./network-architecture.py:graph"
   },
   "env": "../../.env"
 }
