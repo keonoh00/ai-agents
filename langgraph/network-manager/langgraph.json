@@ -1,0 +1,19 @@
+{
+  "dependencies": [
+    "./agents/workflow.py",
+    "./agents/common/__init__.py",
+    "./agents/supervisor/__init__.py",
+    "./agents/network_manager/agent.py",
+    "./agents/network_manager/tools/__init__.py",
+    "./agents/network_manager/tools/models.py",
+    "./agents/traffic_controller/agent.py",
+    "./agents/traffic_controller/tools/__init__.py",
+    "./agents/traffic_controller/tools/models.py",
+    "./agents/tech_reporter/agent.py",
+    "./network/infrastructure.py"
+  ],
+  "graphs": {
+    "network-manager": "./agents/workflow.py:graph"
+  },
+  "env": ".env"
+}
