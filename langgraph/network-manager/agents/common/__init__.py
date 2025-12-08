@@ -2,6 +2,7 @@ import json
 import os
 from typing import Any, Callable, Literal, Optional, Sequence
 
+from config import OLLAMA_MODEL as _OLLAMA_MODEL
 from langchain.chat_models import init_chat_model
 from langchain_core.messages import BaseMessage
 from langgraph.graph import END, START, MessagesState, StateGraph
@@ -10,7 +11,7 @@ from langgraph.types import Command
 from pydantic import BaseModel
 
 OLLAMA_BASE_URL: str = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
-OLLAMA_MODEL: str = "ollama:gpt-oss:latest"
+OLLAMA_MODEL: str = _OLLAMA_MODEL or "ollama:gpt-oss:latest"
 
 llm = init_chat_model(model=OLLAMA_MODEL, base_url=OLLAMA_BASE_URL)
 
