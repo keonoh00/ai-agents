@@ -2,7 +2,15 @@
 
 A multi-agent LangGraph system for network infrastructure monitoring and management.
 
-## Prerequisites
+## Table of Contents
+
+- [📋 Prerequisites](#-prerequisites)
+- [📦 Installation](#-installation)
+- [⚙️ Configuration](#️-configuration)
+- [🧪 Testing Agents](#-testing-agents)
+- [🔧 Troubleshooting](#-troubleshooting)
+
+## 📋 Prerequisites
 
 This project requires `uv` as the package manager. Make sure you have the following installed:
 
@@ -10,7 +18,7 @@ This project requires `uv` as the package manager. Make sure you have the follow
 - `uv` package manager (required)
 - Ollama running locally or accessible via network
 
-## Installation
+## 📦 Installation
 
 1. **Install `uv`** (required):
 
@@ -69,55 +77,67 @@ This project requires `uv` as the package manager. Make sure you have the follow
    ollama pull gpt-oss
    ```
 
-## Configuration
+## ⚙️ Configuration
 
-### Environment Variables
+### Environment Variables Setup
 
-Create a `.env` file in the project root (`langgraph/network-manager/.env`) with the following variables:
+The project uses environment variables stored in a `.env` file for configuration. This file contains runtime settings.
+
+#### Step 1: Create the `.env` file
+
+Create a `.env` file in the **project root** (`langgraph/network-manager/.env`):
+
+```bash
+cd langgraph/network-manager
+touch .env
+```
+
+Then add the following variables:
 
 ```bash
 # Ollama Configuration
 OLLAMA_BASE_URL=http://localhost:11434
-
-LANGSMITH_API_KEY=your-api-key-here
+OLLAMA_MODEL=ollama:gpt-oss:latest
 ```
 
-**Important:** The `.env` file is automatically loaded by `langgraph.json`. Make sure it's in the project root directory.
+**Important:** The `.env` file must be located in the project root (`langgraph/network-manager/.env`). It is automatically loaded by:
 
-### Getting a LangSmith API Key
+- `langgraph.json`: Loads `.env` from project root for LangGraph CLI
+- Python code: Environment variables are accessible via `os.getenv()`
 
-1. Sign up at <https://smith.langchain.com>
-2. Navigate to Settings → API Keys
-3. Create a new API key
-4. Copy the API key and add it to your `.env` file as `LANGSMITH_API_KEY`
+#### Step 2: Verify Configuration
 
-   **Note:** The API key should start with `ls__` prefix.
+The project uses the following configuration structure:
 
-## LangSmith Debugging
+**Environment variables** (`.env` file in project root):
 
-### Starting LangSmith Tracing
+- `OLLAMA_BASE_URL`: Ollama server URL (default: `http://localhost:11434`)
+- `OLLAMA_MODEL`: Ollama model to use (default: `ollama:gpt-oss:latest`)
 
-Once you have configured your `.env` file with LangSmith credentials, tracing is automatically enabled when you run the graph.
+You can verify the configuration is loaded correctly:
 
-1. **Start the graph**:
+```bash
+uv run python -c "import os; print(f'OLLAMA_BASE_URL: {os.getenv(\"OLLAMA_BASE_URL\")}'); print(f'OLLAMA_MODEL: {os.getenv(\"OLLAMA_MODEL\")}')"
+```
 
-   ```bash
-   uv run langgraph dev
-   ```
+Expected output:
 
-   Debugging platform will be available in `https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024`
+```text
+OLLAMA_BASE_URL: http://localhost:11434
+OLLAMA_MODEL: ollama:gpt-oss:latest
+```
 
-2. **Run your queries** - All traces will automatically be sent to LangSmith
+## 🧪 Testing Agents
 
-3. **Access the LangSmith Dashboard**:
+Start the graph using LangGraph CLI:
 
-   Open your browser and navigate to:
+```bash
+uv run langgraph dev
+```
 
-   **<https://smith.langchain.com>**
+🎨 Enter this URL in your browser: <https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024>
 
-   You'll see all your traces, runs, and debugging information in the dashboard.
-
-## Troubleshooting
+## 🔧 Troubleshooting
 
 ### `uv` command not found
 
@@ -160,23 +180,3 @@ If `uv sync` fails:
    uv cache clean
    uv sync
    ```
-
-### LangSmith tracing not working
-
-1. **Verify `.env` file exists:**
-
-   ```bash
-   ls -la .env
-   ```
-
-2. **Check environment variables are loaded:**
-
-   ```bash
-   uv run python -c "import os; from dotenv import load_dotenv; load_dotenv(); print(os.getenv('LANGCHAIN_TRACING_V2'))"
-   ```
-
-3. **Ensure you're using `uv run` for all commands**
-
-## Development
-
-For development setup, code structure, advanced debugging techniques, and extending the system, see [DEVELOPMENT.md](DEVELOPMENT.md).
