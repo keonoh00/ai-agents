@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    "./agent-as-tool-architecture.py",
+    "./network-architecture.py",
+    "./supervisor-architecture.py"
+  ],
+  "graphs": {
+    "agent-as-tool-architecture": "./agent-as-tool-architecture.py:graph",
+    "network-architecture": "./network-architecture.py:graph",
+    "supervisor-architecture": "./supervisor-architecture.py:graph"
+  },
+  "env": "../../.env"
+}
