@@ -1,8 +1,10 @@
 {
   "dependencies": [
+    "./network-architecture.py",
     "./supervisor-architecture.py"
   ],
   "graphs": {
+    "network-architecture": "./network-architecture.py:graph",
     "supervisor-architecture": "./supervisor-architecture.py:graph"
   },
   "env": "../../.env"
