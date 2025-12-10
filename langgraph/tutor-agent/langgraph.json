@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    "agents/quiz_agent.py",
+    "agents/teacher_agent.py",
+    "agents/feynman_agent.py",
+    "agents/classification_agent.py",
+    "agents/common.py",
+    "tools/quiz_tools.py",
+    "tools/common.py",
+    "main.py"
+  ],
+  "graphs": {
+    "tutor": "./main.py:graph"
+  },
+  "env": "../../.env"
+}
