@@ -1,8 +1,9 @@
+import dotenv
+
+dotenv.load_dotenv()
 import asyncio
 import base64
-import os
 
-import dotenv
 import streamlit as st
 from agents import (
     Agent,
@@ -17,11 +18,6 @@ from agents import (
 from agents.mcp.server import MCPServerStdio
 
 from openai import OpenAI
-
-dotenv.load_dotenv(dotenv_path="../../.env")
-VECTOR_STORE_ID = os.environ.get("VECTOR_STORE_ID")
-if not VECTOR_STORE_ID:
-    raise ValueError("VECTOR_STORE_ID must be set")
 
 client = OpenAI()
 
@@ -167,21 +163,18 @@ async def run_agent(message):
             "args": ["mcp-yahoo-finance"],
         },
         cache_tools_list=True,
-        client_session_timeout_seconds=60,
     )
 
     timezone_server = MCPServerStdio(
         params={
             "command": "uvx",
             "args": ["mcp-server-time", "--local-timezone=America/New_York"],
-        },
-        client_session_timeout_seconds=60,
+        }
     )
 
     async with yfinance_server, timezone_server:
 
         agent = Agent(
-            model="o4-mini-2025-04-16",
             mcp_servers=[
                 yfinance_server,
                 timezone_server,
@@ -197,10 +190,10 @@ async def run_agent(message):
         """,
             tools=[
                 WebSearchTool(),
-                FileSearchTool(
-                    vector_store_ids=[VECTOR_STORE_ID],
-                    max_num_results=3,
-                ),
+                # FileSearchTool(
+                #     vector_store_ids=[VECTOR_STORE_ID],
+                #     max_num_results=3,
+                # ),
                 ImageGenerationTool(
                     tool_config={
                         "type": "image_generation",
@@ -297,10 +290,10 @@ if prompt:
                         purpose="user_data",
                     )
                     status.update(label="⏳ Attaching file...")
-                    client.vector_stores.files.create(
-                        vector_store_id=VECTOR_STORE_ID,
-                        file_id=uploaded_file.id,
-                    )
+                    # client.vector_stores.files.create(
+                    #     vector_store_id=VECTOR_STORE_ID,
+                    #     file_id=uploaded_file.id,
+                    # )
                     status.update(label="✅ File uploaded", state="complete")
         elif file.type.startswith("image/"):
             with st.status("⏳ Uploading image...") as status:
