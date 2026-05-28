@@ -30,18 +30,93 @@ Your task is to analyze the user request for the network problem and provide a s
 def build_agent():
     load_dotenv(dotenv_path="../../.env")
 
+    base_url = os.environ.get("GPU_BASE_URL") or os.environ.get("GPU_SERVER_URL")
+    if not base_url:
+        raise RuntimeError("Set GPU_BASE_URL to your GPU server.")
+
+    extra_body = {
+        "llm_config": {
+            "temperature": 0.1,
+            "max_tokens": 512,
+            "top_p": 0.9,
+            "repetition_penalty": 1.05,
+        }
+    }
+
     llm = init_chat_model(
-        "ollama:gpt-oss:latest",
-        base_url=os.environ.get("OLLAMA_BASE_URL"),
-        # headers={"API-Key": "langgraph-structured-output"},
+        model=os.environ.get("GPU_MODEL", "gpt-oss:latest"),
+        base_url=base_url,
+        api_key=os.environ.get("GPU_API_KEY", "not-needed"),
+        extra_body=extra_body,
     )
+
+    """
+    Actual JSON request body shape after `extra_body` is merged and
+    `with_structured_output(NetworkSpecificationResponse)` binds the schema:
+
+    {
+      "model": "gpt-oss:latest",
+      "messages": [
+        {"role": "system", "content": "<SYSTEM_PROMPT>"},
+        {"role": "user", "content": "<user_request>"}
+      ],
+      "llm_config": {
+        "temperature": 0.1,
+        "max_tokens": 512,
+        "top_p": 0.9,
+        "repetition_penalty": 1.05
+      },
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "NetworkSpecificationResponse",
+            "description": "",
+            "parameters": {
+              "properties": {
+                "risk": {
+                  "description": "Risk level of the network modification",
+                  "enum": ["high", "normal", "low"],
+                  "type": "string"
+                },
+                "urgency": {
+                  "description": "Urgency level of the network modification",
+                  "enum": ["high", "normal", "low"],
+                  "type": "string"
+                },
+                "commands": {
+                  "description": "List of commands to execute for the network modification",
+                  "items": {"type": "string"},
+                  "type": "array"
+                },
+                "notes": {
+                  "description": "Additional notes or considerations for the network modification",
+                  "type": "string"
+                }
+              },
+              "required": ["risk", "urgency", "commands", "notes"],
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "tool_choice": {
+        "type": "function",
+        "function": {"name": "NetworkSpecificationResponse"}
+      },
+      "parallel_tool_calls": false
+    }
+    """
 
     return llm.with_structured_output(NetworkSpecificationResponse)
 
 
 def chatbot(agent, user_request: str) -> NetworkSpecificationResponse:
-    result = agent.invoke(f"{SYSTEM_PROMPT}\n\nUser request:\n{user_request}")
-    return NetworkSpecificationResponse.model_validate(result)
+    messages = [
+        ("system", SYSTEM_PROMPT),
+        ("user", user_request),
+    ]
+    return agent.invoke(messages)
 
 
 def main():
